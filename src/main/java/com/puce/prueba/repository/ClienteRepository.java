@@ -1,5 +1,9 @@
 package com.puce.prueba.repository;
 
-public interface ClienteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.puce.prueba.models.Cliente;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
 }

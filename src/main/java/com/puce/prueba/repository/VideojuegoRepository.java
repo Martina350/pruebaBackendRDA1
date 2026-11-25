@@ -1,5 +1,9 @@
 package com.puce.prueba.repository;
 
-public interface VideojuegoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.puce.prueba.models.Videojuego;
+
+public interface VideojuegoRepository extends JpaRepository<Videojuego, Integer> {
 
 }
