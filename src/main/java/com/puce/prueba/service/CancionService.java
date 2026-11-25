@@ -47,4 +47,17 @@ public class CancionService {
             return false;
         }
     }
+
+    public int contarPorGenero(String genero) {
+        List<Cancion> canciones = cancionRepository.findAll();
+        int contar = 0;
+
+        for (Cancion cancion : canciones) {
+            if (cancion.getGenero().equalsIgnoreCase(genero)) {
+                contar++;
+            }
+        }
+
+        return contar;
+    }
 }

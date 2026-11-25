@@ -1,5 +1,6 @@
 package com.puce.prueba.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,5 +22,18 @@ public class VideojuegoService {
 
     public Videojuego createVideojuego(Videojuego videojuego) {
         return videojuegoRepository.save(videojuego);
+    }
+
+    public List<Videojuego> listarPorRangoPrecio(double min, double max) {
+        List<Videojuego> videojuegos = videojuegoRepository.findAll();
+        List<Videojuego> resultado = new ArrayList<>();
+
+        for (Videojuego videojuego : videojuegos) {
+            if (videojuego.getPrecio() >= min && videojuego.getPrecio() <= max) {
+                resultado.add(videojuego);
+            }
+        }
+
+        return resultado;
     }
 }

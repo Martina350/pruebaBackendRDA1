@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.puce.prueba.models.Cliente;
@@ -31,5 +32,10 @@ public class ClienteController {
     public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente) {
     Cliente createdCliente = clienteService.createCliente(cliente);
         return new ResponseEntity<>(createdCliente, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/ciudad")
+    public List<Cliente> listarPorCiudad(@RequestParam String nombre) {
+        return clienteService.listarPorCiudad(nombre);
     }
 }

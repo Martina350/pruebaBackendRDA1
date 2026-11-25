@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.puce.prueba.models.Cancion;
@@ -56,5 +57,10 @@ public class CancionController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/conteo")
+    public int contarPorGenero(@RequestParam String genero) {
+        return cancionService.contarPorGenero(genero);
     }
 }
